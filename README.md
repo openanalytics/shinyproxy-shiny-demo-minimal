@@ -19,4 +19,4 @@ Running the image for testing purposes outside ShinyProxy can be done using e.g.
 sudo docker run -it -p 3838:3838 openanalytics/shinyproxy-template
 ```
 
-(c) Copyright Open Analytics NV, 2016-2017.
+(c) Copyright Open Analytics NV, 2016-2018.
