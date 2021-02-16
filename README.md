@@ -5,7 +5,7 @@ This repository provides a template to deploy your own Shiny apps on [ShinyProxy
 
 Full explanation on the contents of this repository is offered at
 
-https://www.shinyproxy.io/deploying-apps/
+https://www.shinyproxy.io/documentation/deploying-apps/
 
 The purpose of this repository is to customize it for your needs, but if you want to build a Docker image from the Dockerfile in this repository, navigate into the root directory of this repository and run
 
