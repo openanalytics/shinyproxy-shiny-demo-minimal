@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     libxt-dev \
     libssl-dev \
     libssh2-1-dev \
-    libssl1.0.0
+    libssl1.1
 
 # system library dependency for the euler app
 RUN apt-get update && apt-get install -y \
