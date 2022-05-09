@@ -1,10 +1,9 @@
-FROM openanalytics/r-base
+FROM openanalytics/r-ver:4.1.3
 
-MAINTAINER Tobias Verbeke "tobias.verbeke@openanalytics.eu"
+LABEL maintainer="Tobias Verbeke <tobias.verbeke@openanalytics.eu>"
 
 # system libraries of general use
-RUN apt-get update && apt-get install -y \
-    sudo \
+RUN apt-get update && apt-get install --no-install-recommends -y \
     pandoc \
     pandoc-citeproc \
     libcurl4-gnutls-dev \
@@ -21,17 +20,17 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # basic shiny functionality
-RUN R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cloud.r-project.org/')"
+RUN R -q -e "install.packages(c('shiny', 'rmarkdown'))"
 
 # install dependencies of the euler app
-RUN R -e "install.packages('Rmpfr', repos='https://cloud.r-project.org/')"
+RUN R -q -e "install.packages('Rmpfr')"
 
 # copy the app to the image
 RUN mkdir /root/euler
 COPY euler /root/euler
 
-COPY Rprofile.site /usr/lib/R/etc/
+COPY Rprofile.site /usr/local/lib/R/etc/
 
 EXPOSE 3838
 
-CMD ["R", "-e", "shiny::runApp('/root/euler')"]
+CMD ["R", "-q", "-e", "shiny::runApp('/root/euler')"]
