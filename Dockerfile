@@ -1,35 +1,30 @@
-FROM openanalytics/r-ver:4.1.3
+FROM rocker/r-ver:4.3.3
 
 LABEL maintainer="Tobias Verbeke <tobias.verbeke@openanalytics.eu>"
+
+COPY Rprofile.site /usr/local/lib/R/etc/
 
 # system libraries of general use
 RUN apt-get update && apt-get install --no-install-recommends -y \
     pandoc \
     pandoc-citeproc \
-    libcurl4-gnutls-dev \
     libcairo2-dev \
     libxt-dev \
-    libssl-dev \
-    libssh2-1-dev \
-    libssl1.1 \
     && rm -rf /var/lib/apt/lists/*
 
 # system library dependency for the euler app
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
     libmpfr-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # basic shiny functionality
-RUN R -q -e "install.packages(c('shiny', 'rmarkdown'))"
+RUN R -q -e "options(warn=2); install.packages(c('shiny'))"
 
 # install dependencies of the euler app
-RUN R -q -e "install.packages('Rmpfr')"
+RUN R -q -e "options(warn=2); install.packages('Rmpfr')"
 
-# copy the app to the image
-RUN mkdir /root/euler
+# install R code
 COPY euler /root/euler
-
-COPY Rprofile.site /usr/local/lib/R/etc/
 
 EXPOSE 3838
 

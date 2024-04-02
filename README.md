@@ -1,22 +1,42 @@
+# Running Shiny apps in ShinyProxy
 
-# ShinyProxy Template
+This repository explains how to run a Shiny app in ShinyProxy. For simplicity,
+the R code in this repository is not bundled into
+a [R package](https://r-pkgs.org/).
+See [this demo](https://github.com/openanalytics/shinyproxy-demo) that uses the
+same code, but as an R package.
 
-This repository provides a template to deploy your own Shiny apps on [ShinyProxy](https://www.shinyproxy.io).
+## Building the Docker image
 
-Full explanation on the contents of this repository is offered at
+To pull the image made in this repository from Docker Hub, use
 
-https://www.shinyproxy.io/documentation/deploying-apps/
-
-The purpose of this repository is to customize it for your needs, but if you want to build a Docker image from the Dockerfile in this repository, navigate into the root directory of this repository and run
-
+```bash
+sudo docker pull openanalytics/shinyproxy-demo-minimal
 ```
-sudo docker build -t openanalytics/shinyproxy-template .
+
+The relevant Docker Hub repository can be found at [https://hub.docker.com/r/openanalytics/shinyproxy-demo](https://hub.docker.com/r/openanalytics/shinyproxy-demo)
+
+To build the image from the Dockerfile, navigate into the root directory of this repository and run
+
+```bash
+sudo docker build -t openanalytics/shinyproxy-demo-minimal .
 ```
 
 Running the image for testing purposes outside ShinyProxy can be done using e.g.
 
 ```
-sudo docker run -it -p 3838:3838 openanalytics/shinyproxy-template
+sudo docker run -it -p 3838:3838 openanalytics/shinyproxy-demo-minimal
 ```
 
-**(c) Copyright Open Analytics NV, 2016-2022.**
+## ShinyProxy Configuration
+
+Create a ShinyProxy configuration file (see [application.yml](application.yml)
+for a complete file), containing:
+
+```yaml
+specs:
+- id: euler
+  container-image: openanalytics/shinyproxy-demo-minimal
+```
+
+**(c) Copyright Open Analytics NV, 2016-2024.**

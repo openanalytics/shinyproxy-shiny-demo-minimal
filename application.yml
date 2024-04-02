@@ -1,0 +1,26 @@
+proxy:
+  title: Open Analytics Shiny Proxy
+  logo-url: https://www.openanalytics.eu/shinyproxy/logo.png
+  landing-page: /
+  heartbeat-rate: 10000
+  heartbeat-timeout: 60000
+  port: 8080
+  authentication: simple
+  admin-groups: scientists
+  container-wait-time: 999000
+  # Example: 'simple' authentication configuration
+  users:
+  - name: jack
+    password: password
+    groups: scientists
+  - name: jeff
+    password: password
+    groups: mathematicians
+  specs:
+    - id: euler
+      display-name: Euler
+      description: Application to calculate euler
+      container-image: openanalytics/shinyproxy-demo-minimal
+logging:
+  file:
+    name: shinyproxy.log
