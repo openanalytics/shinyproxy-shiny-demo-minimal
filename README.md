@@ -24,7 +24,7 @@ sudo docker build -t openanalytics/shinyproxy-demo-minimal .
 
 Running the image for testing purposes outside ShinyProxy can be done using e.g.
 
-```
+```bash
 sudo docker run -it -p 3838:3838 openanalytics/shinyproxy-demo-minimal
 ```
 
