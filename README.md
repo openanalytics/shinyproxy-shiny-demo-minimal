@@ -6,6 +6,13 @@ a [R package](https://r-pkgs.org/).
 See [this demo](https://github.com/openanalytics/shinyproxy-demo) that uses the
 same code, but as an R package.
 
+Related demos:
+
+- [plain Shiny demo](https://github.com/openanalytics/shinyproxy-demo)
+- [Shiny demo using pak](https://github.com/openanalytics/shinyproxy-shiny-pak-demo)
+- [Shiny demo using r2u](https://github.com/openanalytics/shinyproxy-shiny-r2u-demo)
+- [Shiny demo using renv](https://github.com/openanalytics/shinyproxy-shiny-renv-demo)
+
 ## Building the Docker image
 
 To pull the image made in this repository from Docker Hub, use
@@ -38,5 +45,10 @@ specs:
 - id: euler
   container-image: openanalytics/shinyproxy-demo-minimal
 ```
+
+# References
+
+- [ShinyProxy.io](https://shinyproxy.io/)
+- [All demos](https://shinyproxy.io/documentation/demos/)
 
 **(c) Copyright Open Analytics NV, 2016-2024.**

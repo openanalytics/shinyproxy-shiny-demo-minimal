@@ -1,3 +1,0 @@
-options(repos = c(CRAN = 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest'))
-options(HTTPUserAgent = sprintf('R/%s R (%s)', getRversion(), paste(getRversion(), R.version['platform'], R.version['arch'], R.version['os'])))
-options(shiny.port=3838, shiny.host='0.0.0.0')
