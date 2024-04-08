@@ -25,8 +25,13 @@ RUN R -q -e "options(warn=2); install.packages(c('shiny'))"
 RUN R -q -e "options(warn=2); install.packages('Rmpfr')"
 
 # install R code
-COPY euler /root/euler
+COPY euler /app
+WORKDIR /app
 
 EXPOSE 3838
 
-CMD ["R", "-q", "-e", "shiny::runApp('/root/euler')"]
+# create user
+RUN groupadd -g 1000 shiny && useradd -c 'shiny' -u 1000 -g 1000 -m -d /home/shiny -s /sbin/nologin shiny
+USER shiny
+
+CMD ["R", "-q", "-e", "shiny::runApp('/app')"]
