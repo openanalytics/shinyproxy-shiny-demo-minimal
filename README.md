@@ -3,12 +3,12 @@
 This repository explains how to run a Shiny app in ShinyProxy. For simplicity,
 the R code in this repository is not bundled into
 a [R package](https://r-pkgs.org/).
-See [this demo](https://github.com/openanalytics/shinyproxy-demo) that uses the
+See [this demo](https://github.com/openanalytics/shinyproxy-shiny-demo) that uses the
 same code, but as an R package.
 
 Related demos:
 
-- [plain Shiny demo](https://github.com/openanalytics/shinyproxy-demo)
+- [plain Shiny demo](https://github.com/openanalytics/shinyproxy-shiny-demo)
 - [Shiny demo using pak](https://github.com/openanalytics/shinyproxy-shiny-pak-demo)
 - [Shiny demo using r2u](https://github.com/openanalytics/shinyproxy-shiny-r2u-demo)
 - [Shiny demo using renv](https://github.com/openanalytics/shinyproxy-shiny-renv-demo)
@@ -18,7 +18,7 @@ Related demos:
 To pull the image made in this repository from Docker Hub, use
 
 ```bash
-sudo docker pull openanalytics/shinyproxy-demo-minimal
+sudo docker pull openanalytics/shinyproxy-shiny-demo-minimal
 ```
 
 The relevant Docker Hub repository can be found at [https://hub.docker.com/r/openanalytics/shinyproxy-demo](https://hub.docker.com/r/openanalytics/shinyproxy-demo)
@@ -26,13 +26,13 @@ The relevant Docker Hub repository can be found at [https://hub.docker.com/r/ope
 To build the image from the Dockerfile, navigate into the root directory of this repository and run
 
 ```bash
-sudo docker build -t openanalytics/shinyproxy-demo-minimal .
+sudo docker build -t openanalytics/shinyproxy-shiny-demo-minimal .
 ```
 
 Running the image for testing purposes outside ShinyProxy can be done using e.g.
 
 ```bash
-sudo docker run -it -p 3838:3838 openanalytics/shinyproxy-demo-minimal
+sudo docker run -it -p 3838:3838 openanalytics/shinyproxy-shiny-demo-minimal
 ```
 
 ## ShinyProxy Configuration
