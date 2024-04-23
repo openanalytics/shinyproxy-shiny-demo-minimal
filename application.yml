@@ -19,7 +19,7 @@ proxy:
   specs:
     - id: euler
       display-name: Euler
-      description: Application to calculate euler
+      description: Application to calculate euler's e
       container-image: openanalytics/shinyproxy-shiny-demo-minimal
 logging:
   file:
