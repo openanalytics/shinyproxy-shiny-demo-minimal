@@ -41,9 +41,10 @@ Create a ShinyProxy configuration file (see [application.yml](application.yml)
 for a complete file), containing:
 
 ```yaml
-specs:
-- id: euler
-  container-image: openanalytics/shinyproxy-demo-minimal
+proxy:
+  specs:
+    - id: euler
+      container-image: openanalytics/shinyproxy-shiny-demo-minimal
 ```
 
 ## References
